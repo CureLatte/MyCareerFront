@@ -1,8 +1,7 @@
-import { useState } from 'react';
 import { BACKGROUND_GRAY } from '@/const/Color';
 
 export default function NavText({ text, activate, onClick }: any) {
-	let textStyle = {
+	let textStyle: any = {
 		display: 'flex',
 		flexDirection: 'row',
 		alignItems: 'center',
@@ -11,6 +10,7 @@ export default function NavText({ text, activate, onClick }: any) {
 		marginTop: '10px',
 		marginBottom: '10px',
 		height: '30px',
+		cursor: 'pointer',
 	};
 	if (activate) {
 		// 선택시
