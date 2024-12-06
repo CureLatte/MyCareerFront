@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { sleep } from '@/utils/commonUtils';
+import { getApplyStatusAPI } from '@/api/ApplyApi';
 
 export default function ApplyStatus({}: {}) {
 	const [loading, setLoading] = useState(true);
@@ -16,14 +17,17 @@ export default function ApplyStatus({}: {}) {
 	const getApplyStatus = async () => {
 		setLoading(true);
 
+		const data = await getApplyStatusAPI();
+
+		if (!data.ok) {
+			console.log(`ERROR: ${data.data}`);
+		}
+
 		setApplyStatusInfo({
 			...applyStatusInfo,
-			startTime: '2021-02-01',
-			endTime: '2021-02-01',
-			status: 'OFF',
+			...data.data,
 		});
 
-		await sleep(1000);
 		return true;
 	};
 

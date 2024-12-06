@@ -26,8 +26,6 @@ export default function Nav({}: any) {
 		>
 			{navList.map(
 				(item: { title: string; url: string }, index: number) => {
-					console.log(item, index);
-
 					return (
 						<NavText
 							key={index}
