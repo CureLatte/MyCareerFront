@@ -5,23 +5,42 @@ import { useState } from 'react';
 export default function Nav({}: any) {
 	const [activateTab, setActivateTab] = useState(0);
 
-	const navList = ['대시 보드', '지원 현황', '이력서 관리', '지원 현황'];
+	const navList = [
+		{
+			title: '대시 보드',
+			url: '/dashboard',
+		},
+		{
+			title: '지원 현황',
+			url: '/apply',
+		},
+		{
+			title: '이력서 관리',
+			url: '/resume',
+		},
+	];
 
 	return (
 		<nav
 			style={{ background: LIGHT_GRAY, height: '100vh', width: '200px' }}
 		>
-			{navList.map((item: string, index: number) => {
-				console.log(item, index);
+			{navList.map(
+				(item: { title: string; url: string }, index: number) => {
+					console.log(item, index);
 
-				return (
-					<NavText
-						onClick={() => setActivateTab(Number(index))}
-						text={item}
-						activate={Number(index) === Number(activateTab)}
-					></NavText>
-				);
-			})}
+					return (
+						<NavText
+							key={index}
+							onClick={() => {
+								setActivateTab(Number(index));
+							}}
+							text={item.title}
+							url={item.url}
+							activate={Number(index) === Number(activateTab)}
+						></NavText>
+					);
+				},
+			)}
 		</nav>
 	);
 }

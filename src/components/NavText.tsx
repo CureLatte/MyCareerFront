@@ -1,6 +1,7 @@
 import { BACKGROUND_GRAY } from '@/const/Color';
+import Link from 'next/link';
 
-export default function NavText({ text, activate, onClick }: any) {
+export default function NavText({ text, activate, onClick, url }: any) {
 	let textStyle: any = {
 		display: 'flex',
 		flexDirection: 'row',
@@ -22,8 +23,8 @@ export default function NavText({ text, activate, onClick }: any) {
 	}
 
 	return (
-		<div onClick={onClick} style={textStyle}>
+		<Link href={url} onClick={onClick} style={textStyle}>
 			{text}
-		</div>
+		</Link>
 	);
 }
