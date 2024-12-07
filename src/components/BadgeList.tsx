@@ -50,7 +50,7 @@ export default function BadgeList() {
 				flexDirection: 'row',
 				gap: '10px',
 				alignItems: 'center',
-				justifyContent: 'center',
+				justifyContent: 'start',
 			}}
 		>
 			{badgeList.length <= 0 ? (
