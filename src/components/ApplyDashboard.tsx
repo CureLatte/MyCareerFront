@@ -1,7 +1,6 @@
 import ApplyStatus from '@/components/ApplyStatus';
 import RoundBoxTemplate from '@/components/RoundBoxTemplate';
 import React from 'react';
-import BadgeBox from '@/components/BadgeBox';
 import BadgeList from '@/components/BadgeList';
 
 export default function ApplyDashboard() {
