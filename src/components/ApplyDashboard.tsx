@@ -14,7 +14,7 @@ export default function ApplyDashboard() {
 					alignItems: 'center',
 					justifyContent: 'center',
 					gap: '20px',
-					height: '400px',
+					height: '300px',
 				}}
 			>
 				<div

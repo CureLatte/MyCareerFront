@@ -10,7 +10,7 @@ export default function ApplyTable() {
 
 	const BackGround = styled.div`
 		width: 80%;
-		height: 200px;
+		height: 100px;
 		display: flex;
 		flex-direction: row;
 		align-items: center;

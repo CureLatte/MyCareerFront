@@ -21,9 +21,7 @@ export default function Nav({}: any) {
 	];
 
 	return (
-		<nav
-			style={{ background: LIGHT_GRAY, height: '100vh', width: '200px' }}
-		>
+		<nav style={{ background: LIGHT_GRAY, width: '200px' }}>
 			{navList.map(
 				(item: { title: string; url: string }, index: number) => {
 					return (
