@@ -2,6 +2,7 @@
 import BadgeBox from '@/components/BadgeBox';
 import React, { useEffect, useState } from 'react';
 import { sleep } from '@/utils/commonUtils';
+import styled from 'styled-components';
 
 export default function BadgeList() {
 	const [badgeList, setBadgeList] = React.useState<
@@ -12,6 +13,16 @@ export default function BadgeList() {
 	>([]);
 
 	const [loading, setLoading] = useState(false);
+
+	const BackGround = styled.div`
+		width: 80%;
+		height: 120px;
+		display: flex;
+		flex-direction: row;
+		gap: 10px;
+		align-items: center;
+		justify-content: start;
+	`;
 
 	useEffect(() => {
 		getBadgeList().then(() => {
@@ -37,12 +48,15 @@ export default function BadgeList() {
 	};
 
 	if (loading) {
-		return <div> 로딩중 입니다...</div>;
+		return (
+			<BackGround style={{ justifyContent: 'center' }}>
+				로딩중 입니다...
+			</BackGround>
+		);
 	}
 
 	return (
-		<div
-			className={'badgeList'}
+		<BackGround
 			style={{
 				width: '80%',
 				height: '120px',
@@ -68,6 +82,6 @@ export default function BadgeList() {
 					},
 				)
 			)}
-		</div>
+		</BackGround>
 	);
 }

@@ -2,6 +2,7 @@ import ApplyStatus from '@/components/ApplyStatus';
 import RoundBoxTemplate from '@/components/RoundBoxTemplate';
 import React from 'react';
 import BadgeList from '@/components/BadgeList';
+import ApplyTable from '@/components/ApplyTable';
 
 export default function ApplyDashboard() {
 	return (
@@ -30,6 +31,8 @@ export default function ApplyDashboard() {
 					<ApplyStatus />
 
 					<BadgeList />
+
+					<ApplyTable />
 				</div>
 
 				<div style={{ width: '40%', height: '100%' }}>
