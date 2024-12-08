@@ -10,10 +10,11 @@ export default function ApplyTable() {
 
 	const BackGround = styled.div`
 		width: 80%;
-		height: 100px;
+		height: 150px;
 		display: flex;
-		flex-direction: row;
-		align-items: center;
+		flex-direction: column;
+		align-items: start;
+		gap: 15px;
 		justify-content: center;
 	`;
 
@@ -44,6 +45,20 @@ export default function ApplyTable() {
 
 	return (
 		<BackGround>
+			<div
+				style={{
+					width: '120px',
+					height: '30px',
+					borderRadius: '15px',
+					backgroundColor: '#E4E4E4',
+					display: 'flex',
+					flexDirection: 'row',
+					alignItems: 'center',
+					justifyContent: 'center',
+				}}
+			>
+				지원 현황
+			</div>
 			<table
 				style={{
 					gap: '10px',
