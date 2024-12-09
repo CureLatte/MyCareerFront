@@ -3,6 +3,7 @@ import RoundBoxTemplate from '@/components/RoundBoxTemplate';
 import React from 'react';
 import BadgeList from '@/components/BadgeList';
 import ApplyTable from '@/components/ApplyTable';
+import ApplyHistoryListBox from '@/components/ApplyHistoryListBox';
 
 export default function ApplyDashboard() {
 	return (
@@ -13,7 +14,7 @@ export default function ApplyDashboard() {
 					flexDirection: 'row',
 					alignItems: 'center',
 					justifyContent: 'center',
-					gap: '20px',
+					gap: '50px',
 					height: '300px',
 				}}
 			>
@@ -25,7 +26,7 @@ export default function ApplyDashboard() {
 						display: 'flex',
 						flexDirection: 'column',
 						justifyContent: 'start',
-						alignItems: 'center',
+						alignItems: 'start',
 					}}
 				>
 					<ApplyStatus />
@@ -35,8 +36,8 @@ export default function ApplyDashboard() {
 					<ApplyTable />
 				</div>
 
-				<div style={{ width: '40%', height: '100%' }}>
-					최근 지원 이력
+				<div style={{ width: '500px', height: '100%' }}>
+					<ApplyHistoryListBox></ApplyHistoryListBox>
 				</div>
 			</div>
 		</RoundBoxTemplate>

@@ -5,14 +5,20 @@ import { sleep } from '@/utils/commonUtils';
 import styled from 'styled-components';
 
 export default function BadgeList() {
-	const [badgeList, setBadgeList] = React.useState<
+	const [badgeList, setBadgeList] = useState<
 		{
 			title: string;
 			cnt: number;
 		}[]
 	>([]);
 
-	const [loading, setLoading] = useState(false);
+	const [loading, setLoading] = useState<boolean>(false);
+
+	useEffect(() => {
+		getBadgeList().then(() => {
+			setLoading(false);
+		});
+	}, []);
 
 	const BackGround = styled.div`
 		width: 80%;
@@ -23,12 +29,6 @@ export default function BadgeList() {
 		align-items: center;
 		justify-content: start;
 	`;
-
-	useEffect(() => {
-		getBadgeList().then(() => {
-			setLoading(false);
-		});
-	}, []);
 
 	const getBadgeList = async () => {
 		setLoading(true);
@@ -56,17 +56,7 @@ export default function BadgeList() {
 	}
 
 	return (
-		<BackGround
-			style={{
-				width: '80%',
-				height: '120px',
-				display: 'flex',
-				flexDirection: 'row',
-				gap: '10px',
-				alignItems: 'center',
-				justifyContent: 'start',
-			}}
-		>
+		<BackGround>
 			{badgeList.length <= 0 ? (
 				<div>받은 뱃지가 없습니다</div>
 			) : (

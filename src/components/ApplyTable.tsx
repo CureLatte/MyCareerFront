@@ -88,25 +88,17 @@ export default function ApplyTable() {
 					>
 						{Object.keys(applyData).map(
 							(key: string, index: number) => {
-								return (
-									<td style={{}} key={index}>
-										{key}
-									</td>
-								);
+								return <td key={index}>{key}</td>;
 							},
 						)}
 					</tr>
 				</thead>
 
 				<tbody>
-					<tr style={{}}>
+					<tr>
 						{Object.keys(applyData).map(
 							(key: string, index: number) => {
-								return (
-									<td style={{}} key={index}>
-										{applyData[key]}
-									</td>
-								);
+								return <td key={index}>{applyData[key]}</td>;
 							},
 						)}
 					</tr>

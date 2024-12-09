@@ -1,21 +1,19 @@
-import "./no.css"
-import BaseLayOut from "@/pages/BaseLayOut";
-
+import './no.css';
+import StyledComponentsRegistry from '../lib/registry';
+import BaseLayOut from '@/pages/BaseLayOut';
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-      <html>
-        <body>
-          <BaseLayOut lang="ko">
-              {children}
-          </BaseLayOut>
-        </body>
-
-      </html>
-
-  );
+	return (
+		<html>
+			<body>
+				<StyledComponentsRegistry>
+					<BaseLayOut lang="ko">{children}</BaseLayOut>
+				</StyledComponentsRegistry>
+			</body>
+		</html>
+	);
 }
