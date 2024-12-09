@@ -1,5 +1,5 @@
 'use client';
-import BadgeBox from '@/components/BadgeBox';
+import Badge from '@/components/Badge';
 import React, { useEffect, useState } from 'react';
 import { sleep } from '@/utils/commonUtils';
 import styled from 'styled-components';
@@ -49,7 +49,7 @@ export default function BadgeList() {
 
 	if (loading) {
 		return (
-			<BackGround style={{ justifyContent: 'center' }}>
+			<BackGround style={{ justifyContent: 'start' }}>
 				로딩중 입니다...
 			</BackGround>
 		);
@@ -63,7 +63,7 @@ export default function BadgeList() {
 				badgeList.map(
 					(item: { title: string; cnt: number }, index: number) => {
 						return (
-							<BadgeBox
+							<Badge
 								key={index}
 								title={item.title}
 								cnt={item.cnt}

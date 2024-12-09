@@ -13,7 +13,7 @@ export default function ApplyHistory({ historyInfo }: any) {
 		<div
 			style={{
 				width: '100%',
-				height: '50px',
+				height: '40px',
 				backgroundColor: LIGHT_GRAY_1,
 				borderRadius: '25px',
 				display: 'flex',

@@ -5,12 +5,14 @@ import styled from 'styled-components';
 
 export default function ApplyHistoryListBox() {
 	const BackGroundStyle = styled.div`
-		padding: 10px;
+		padding: 30px;
 		background-color: ${LIGHT_GRAY_3};
 		border-radius: 20px;
 		display: flex;
 		flex-direction: column;
 		gap: 15px;
+		height: 290px;
+		overflow: hidden;
 
 		.row {
 			width: 80px;

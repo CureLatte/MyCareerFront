@@ -9,13 +9,20 @@ export default function ApplyTable() {
 	const [applyData, setApplyData] = useState<any>({});
 
 	const BackGround = styled.div`
-		width: 80%;
-		height: 150px;
+		width: 100%;
+		height: 100px;
 		display: flex;
 		flex-direction: column;
 		align-items: start;
-		gap: 15px;
 		justify-content: center;
+
+		.row {
+			text-align: center;
+		}
+
+		.data {
+			font-size: 17px;
+		}
 	`;
 
 	useEffect(() => {
@@ -50,45 +57,32 @@ export default function ApplyTable() {
 
 	return (
 		<BackGround>
-			<div
-				style={{
-					width: '120px',
-					height: '30px',
-					borderRadius: '15px',
-					backgroundColor: '#E4E4E4',
-					display: 'flex',
-					flexDirection: 'row',
-					alignItems: 'center',
-					justifyContent: 'center',
-				}}
-			>
-				지원 현황
-			</div>
 			<table
 				style={{
-					gap: '10px',
-					margin: '0 10px',
 					backgroundColor: LIGHT_GRAY_2,
-					width: '80%',
-					fontSize: '17px',
+					width: '100%',
+					tableLayout: 'fixed',
+					fontSize: '12px',
 					borderCollapse: 'separate',
 					borderSpacing: '10px',
-					textAlign: 'center',
 					borderRadius: '20px',
+					textAlign: 'center',
 					verticalAlign: 'center',
 				}}
 			>
 				<thead>
 					<tr
 						style={{
-							gap: '10px',
-							margin: '10px',
 							fontWeight: 'bold',
 						}}
 					>
 						{Object.keys(applyData).map(
 							(key: string, index: number) => {
-								return <td key={index}>{key}</td>;
+								return (
+									<td className={'row'} key={index}>
+										{key}
+									</td>
+								);
 							},
 						)}
 					</tr>
@@ -98,7 +92,11 @@ export default function ApplyTable() {
 					<tr>
 						{Object.keys(applyData).map(
 							(key: string, index: number) => {
-								return <td key={index}>{applyData[key]}</td>;
+								return (
+									<td className={'data'} key={index}>
+										{applyData[key]}
+									</td>
+								);
 							},
 						)}
 					</tr>

@@ -1,13 +1,7 @@
 import { BACKGROUND_GRAY, LIGHT_GRAY_2 } from '@/const/Color';
 import { ReactNode } from 'react';
 
-export default function BadgeBox({
-	title,
-	cnt,
-}: {
-	title: string;
-	cnt: number;
-}) {
+export default function Badge({ title, cnt }: { title: string; cnt: number }) {
 	return (
 		<div
 			style={{
