@@ -5,8 +5,8 @@ import { LIGHT_GRAY_2 } from '@/const/Color';
 import styled from 'styled-components';
 
 export default function ApplyTable() {
-	const [loading, setLoading] = useState(true);
-	const [applyData, setApplyData] = useState<{}>({});
+	const [loading, setLoading] = useState<boolean>(true);
+	const [applyData, setApplyData] = useState<any>({});
 
 	const BackGround = styled.div`
 		width: 80%;
@@ -33,6 +33,7 @@ export default function ApplyTable() {
 			applyStatus: 1,
 			paperTest: 2,
 			assignmentTest: 3,
+			interview: 10,
 			result: 10,
 		};
 		setApplyData({ ...data });
@@ -40,7 +41,11 @@ export default function ApplyTable() {
 	};
 
 	if (loading) {
-		return <BackGround>로딩중 입니다..</BackGround>;
+		return (
+			<BackGround>
+				<div>로딩중 입니다..</div>
+			</BackGround>
+		);
 	}
 
 	return (
