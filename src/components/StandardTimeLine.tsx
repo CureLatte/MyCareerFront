@@ -13,7 +13,7 @@ import {
 export default function StandardTimeLine() {
 	const backgroundRef = useRef<HTMLDivElement>(null);
 	const [dateList, setDateList] = useState<Date[]>([]);
-	const [moveStatus, setMoveStatus] = useState<number>(0);
+	const [moveStatus, setMoveStatus] = useState<number>(300);
 
 	useEffect(() => {
 		console.log('updated!');
@@ -57,7 +57,7 @@ export default function StandardTimeLine() {
 		const updatedPastDate = [];
 		const today = new Date();
 		console.log(`today ${today.getMonth() + 1} - ${today.getDate()}`);
-		const defaultDiffDay = 10;
+		const defaultDiffDay = 15;
 		today.setDate(today.getDate() - defaultDiffDay);
 
 		for (let i = 0; i < defaultDiffDay * 2; i++) {
@@ -66,6 +66,9 @@ export default function StandardTimeLine() {
 		}
 
 		setDateList([...updatedPastDate]);
+		if (backgroundRef.current) {
+			setMoveStatus(Number(backgroundRef.current.style.width) / 2);
+		}
 	};
 
 	const addDateList = (cnt: number) => {
