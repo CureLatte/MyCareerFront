@@ -1,24 +1,31 @@
 'use client';
 import styled from 'styled-components';
 import {
+	Dispatch,
 	ForwardedRef,
 	forwardRef,
 	ReactNode,
+	SetStateAction,
+	useContext,
 	useEffect,
 	useLayoutEffect,
 	useRef,
 	useState,
 } from 'react';
+import { TimeLineContext } from '@/context/TimeLineContext';
 
-export default function StandardTimeLine() {
+export default function StandardTimeLine({
+	dateList,
+	setDateList,
+	today,
+}: {
+	dateList: Date[];
+	setDateList: Dispatch<SetStateAction<Date[]>>;
+	today: Date;
+}) {
 	const backgroundRef = useRef<HTMLDivElement>(null);
-	const [dateList, setDateList] = useState<Date[]>([]);
-	const [moveStatus, setMoveStatus] = useState<number>(300);
-
-	useEffect(() => {
-		console.log('updated!');
-		getDateTimeLineList();
-	}, []);
+	const [moveStatus, setMoveStatus] = useState<number>(400);
+	const styleState = useContext(TimeLineContext);
 
 	useLayoutEffect(() => {
 		console.log('updated Layout Effect!!');
@@ -28,14 +35,14 @@ export default function StandardTimeLine() {
 	}, [backgroundRef, moveStatus]);
 
 	const BackGroundStyle = styled.div`
-		width: 80%;
+		width: ${styleState.width}px;
 		height: 50px;
 		border-radius: 15px;
-		background-color: lightskyblue;
+		// background-color: lightskyblue;
 		justify-self: center;
 		flex-direction: row;
 		display: flex;
-		gap: 20px;
+		gap: ${styleState.gapWidth}px;
 		justify-content: space-evenly;
 		align-items: center;
 		overflow: auto;
@@ -52,24 +59,6 @@ export default function StandardTimeLine() {
 			return <BackGroundStyle ref={ref}>{children}</BackGroundStyle>;
 		},
 	);
-
-	const getDateTimeLineList = () => {
-		const updatedPastDate = [];
-		const today = new Date();
-		console.log(`today ${today.getMonth() + 1} - ${today.getDate()}`);
-		const defaultDiffDay = 15;
-		today.setDate(today.getDate() - defaultDiffDay);
-
-		for (let i = 0; i < defaultDiffDay * 2; i++) {
-			today.setDate(today.getDate() + 1);
-			updatedPastDate.push(new Date(today.getTime()));
-		}
-
-		setDateList([...updatedPastDate]);
-		if (backgroundRef.current) {
-			setMoveStatus(Number(backgroundRef.current.style.width) / 2);
-		}
-	};
 
 	const addDateList = (cnt: number) => {
 		const prevDateList = [...dateList];
@@ -112,7 +101,15 @@ export default function StandardTimeLine() {
 			</div>
 			{dateList.map((date, index) => {
 				return (
-					<div style={{ backgroundColor: 'darkgrey' }} key={index}>
+					<div
+						style={{
+							minWidth: `${styleState.rowWidth}px`,
+							height: '20px',
+							position: 'relative',
+							backgroundColor: 'darkgrey',
+						}}
+						key={index}
+					>
 						{date.getMonth() + 1} - {date.getDate()}
 					</div>
 				);
