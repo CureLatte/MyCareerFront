@@ -46,7 +46,7 @@ export default function ApplyStatus({}: {}) {
 			}}
 		>
 			<div>
-				취업 기간: {applyStatusInfo.startTime} ~{' '}
+				취업 기간: {applyStatusInfo.startTime} ~
 				{applyStatusInfo.status === 'ON'
 					? '진행 중'
 					: applyStatusInfo.endTime}

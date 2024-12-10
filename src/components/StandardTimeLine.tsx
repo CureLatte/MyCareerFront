@@ -1,13 +1,31 @@
 'use client';
 import styled from 'styled-components';
-import { useEffect, useState } from 'react';
+import {
+	ForwardedRef,
+	forwardRef,
+	ReactNode,
+	useEffect,
+	useLayoutEffect,
+	useRef,
+	useState,
+} from 'react';
 
 export default function StandardTimeLine() {
+	const backgroundRef = useRef<HTMLDivElement>(null);
 	const [dateList, setDateList] = useState<Date[]>([]);
+	const [moveStatus, setMoveStatus] = useState<number>(0);
 
 	useEffect(() => {
+		console.log('updated!');
 		getDateTimeLineList();
 	}, []);
+
+	useLayoutEffect(() => {
+		console.log('updated Layout Effect!!');
+		if (moveStatus && backgroundRef.current) {
+			backgroundRef.current.scrollLeft = moveStatus;
+		}
+	}, [backgroundRef, moveStatus]);
 
 	const BackGroundStyle = styled.div`
 		width: 80%;
@@ -18,18 +36,28 @@ export default function StandardTimeLine() {
 		flex-direction: row;
 		display: flex;
 		gap: 20px;
-		justify-content: center;
+		justify-content: space-evenly;
 		align-items: center;
 		overflow: auto;
 		white-space: nowrap;
 		text-overflow: ellipsis;
+		scroll-snap-align: center;
 	`;
+
+	const StackTagsWrap = forwardRef(
+		(
+			{ children }: { children: ReactNode },
+			ref: ForwardedRef<HTMLDivElement>,
+		) => {
+			return <BackGroundStyle ref={ref}>{children}</BackGroundStyle>;
+		},
+	);
 
 	const getDateTimeLineList = () => {
 		const updatedPastDate = [];
 		const today = new Date();
 		console.log(`today ${today.getMonth() + 1} - ${today.getDate()}`);
-		const defaultDiffDay = 5;
+		const defaultDiffDay = 10;
 		today.setDate(today.getDate() - defaultDiffDay);
 
 		for (let i = 0; i < defaultDiffDay * 2; i++) {
@@ -58,10 +86,20 @@ export default function StandardTimeLine() {
 		}
 
 		setDateList([...prevDateList]);
+
+		if (cnt <= 0) {
+			if (backgroundRef.current) {
+				setMoveStatus(backgroundRef.current.scrollLeft * -1);
+			}
+		} else {
+			if (backgroundRef.current) {
+				setMoveStatus(backgroundRef.current.scrollLeft);
+			}
+		}
 	};
 
 	return (
-		<BackGroundStyle>
+		<StackTagsWrap ref={backgroundRef}>
 			<div
 				onClick={() => {
 					addDateList(-10);
@@ -77,12 +115,12 @@ export default function StandardTimeLine() {
 				);
 			})}
 			<div
-				onClick={() => {
+				onClick={(e) => {
 					addDateList(10);
 				}}
 			>
 				다음 날 보기
 			</div>
-		</BackGroundStyle>
+		</StackTagsWrap>
 	);
 }
