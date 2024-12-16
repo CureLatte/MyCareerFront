@@ -1,4 +1,4 @@
-import { LIGHT_GRAY } from '@/const/Color';
+import { DARK_BLUE_3, LIGHT_GRAY } from '@/const/Color';
 import NavText from '@/components/NavText';
 import { useState } from 'react';
 
@@ -21,7 +21,15 @@ export default function Nav({}: any) {
 	];
 
 	return (
-		<nav style={{ background: LIGHT_GRAY, width: '200px' }}>
+		<nav
+			style={{
+				backgroundColor: DARK_BLUE_3,
+				margin: '20px',
+				width: '200px',
+				borderRadius: '20px',
+				padding: '20px 0 20px 0',
+			}}
+		>
 			{navList.map(
 				(item: { title: string; url: string }, index: number) => {
 					return (

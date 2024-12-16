@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import BadgeListBox from '@/components/BadgeListBox';
 import ApplyTableBox from '@/components/ApplyTableBox';
 
-export default function ApplyDashboard() {
+export default function ApplyDashboard({ className }: { className?: string }) {
 	const BackGroundStyle = styled.div`
 		display: flex;
 		flex-direction: row;
@@ -37,7 +37,7 @@ export default function ApplyDashboard() {
 	`;
 
 	return (
-		<RoundBoxTemplate>
+		<RoundBoxTemplate className={className}>
 			<BackGroundStyle>
 				<div
 					className={'box'}
@@ -50,8 +50,6 @@ export default function ApplyDashboard() {
 						alignItems: 'center',
 					}}
 				>
-					<ApplyStatus />
-
 					<BadgeListBox />
 
 					<ApplyTableBox />

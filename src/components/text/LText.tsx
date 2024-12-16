@@ -5,7 +5,7 @@ export default function LText({
 	style,
 }: {
 	text: string;
-	style: object;
+	style?: object;
 }) {
 	return (
 		<Text

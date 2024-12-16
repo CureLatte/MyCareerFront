@@ -1,10 +1,12 @@
 import styled from 'styled-components';
+import STextBlack from '@/components/text/STextBlack';
+import MTextBlack from '@/components/text/MTextBlack';
 
 export default function WhiteTitle({ text }: { text: string }) {
 	const BackGroundStyle = styled.div`
-		width: 120px;
-		height: 25px;
-		border-radius: 15px;
+		width: 80px;
+		height: 30px;
+		border-radius: 30px;
 		background-color: #e4e4e4;
 		display: flex;
 		flex-direction: row;
@@ -12,5 +14,9 @@ export default function WhiteTitle({ text }: { text: string }) {
 		justify-content: center;
 	`;
 
-	return <BackGroundStyle>{text}</BackGroundStyle>;
+	return (
+		<BackGroundStyle>
+			<MTextBlack text={text}></MTextBlack>
+		</BackGroundStyle>
+	);
 }

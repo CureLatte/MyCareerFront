@@ -3,6 +3,7 @@ import Badge from '@/components/Badge';
 import React, { useEffect, useState } from 'react';
 import { sleep } from '@/utils/commonUtils';
 import styled from 'styled-components';
+import LTextWhite from '@/components/text/LTextWhite';
 
 export default function BadgeList() {
 	const [badgeList, setBadgeList] = useState<
@@ -21,7 +22,7 @@ export default function BadgeList() {
 	}, []);
 
 	const BackGround = styled.div`
-		width: 80%;
+		width: 100%;
 		height: 120px;
 		display: flex;
 		flex-direction: row;
@@ -50,7 +51,7 @@ export default function BadgeList() {
 	if (loading) {
 		return (
 			<BackGround style={{ justifyContent: 'start' }}>
-				로딩중 입니다...
+				<LTextWhite text={'로딩중 입니다...'}></LTextWhite>
 			</BackGround>
 		);
 	}

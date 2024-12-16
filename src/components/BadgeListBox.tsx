@@ -4,7 +4,14 @@ import WhiteTitle from '@/components/WhiteTitle';
 
 export default function BadgeListBox() {
 	const BackGroundStyle = styled.div`
-		width: 80%;
+		width: 100%;
+		max-width: 400px;
+		height: 100%;
+		display: flex;
+		flex-direction: column;
+		overflow: auto;
+		.div {
+		}
 	`;
 
 	return (

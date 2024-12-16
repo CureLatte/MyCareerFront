@@ -1,19 +1,21 @@
 'use client';
 
-import { LIGHT_GRAY_1, LIGHT_GRAY_2 } from '@/const/Color';
+import { DARK_BLUE_3, LIGHT_GRAY_1, LIGHT_GRAY_2 } from '@/const/Color';
 import styled from 'styled-components';
 
 export default function RoundBoxTemplate({
 	children,
+	className,
 }: {
 	children: React.ReactNode;
+	className?: string;
 }) {
 	const BackGroundStyle = styled.div`
-		background-color: ${LIGHT_GRAY_1};
-		border-radius: 30px;
+		background-color: ${DARK_BLUE_3};
+		border-radius: 20px;
 		padding: 20px;
 		margin: 30px;
 	`;
 
-	return <BackGroundStyle>{children}</BackGroundStyle>;
+	return <BackGroundStyle className={className}>{children}</BackGroundStyle>;
 }

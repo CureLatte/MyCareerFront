@@ -1,4 +1,10 @@
-export default function Text({ text, style }: { text: string; style: object }) {
+export default function Text({
+	text,
+	style,
+}: {
+	text: string;
+	style?: object;
+}) {
 	return (
 		<div
 			style={{

@@ -2,6 +2,7 @@
 
 import Nav from '@/components/Nav';
 import MainPage from '@/components/MainPage';
+import { DARK_BLUE_2 } from '@/const/Color';
 
 export default function BaseLayOut({ children }: any) {
 	return (
@@ -10,7 +11,7 @@ export default function BaseLayOut({ children }: any) {
 				display: 'flex',
 				flexDirection: 'row',
 				width: '100vw',
-				backgroundColor: 'black',
+				backgroundColor: DARK_BLUE_2,
 			}}
 		>
 			<Nav />
