@@ -4,6 +4,9 @@ import { sleep } from '@/utils/commonUtils';
 import { getApplyStatusAPI } from '@/api/ApplyApi';
 import LTextWhite from '@/components/text/LTextWhite';
 import styled from 'styled-components';
+import RoundBoxTemplate from '@/components/RoundBoxTemplate';
+import MTextWhite from '@/components/text/MTextWhite';
+import { DARK_BLUE_2 } from '@/const/Color';
 
 export default function ApplyStatus({}: {}) {
 	const [loading, setLoading] = useState(true);
@@ -13,8 +16,30 @@ export default function ApplyStatus({}: {}) {
 	const BackGroundStyle = styled.div`
 		display: flex;
 		flex-direction: row;
-		width: 50%;
+		width: 100%;
+		height: 100%;
 		justify-content: start;
+		gap: 20px;
+		white-space: nowrap;
+
+		.box {
+			margin: 0;
+			justify-content: center;
+			align-content: center;
+		}
+
+		.status {
+			width: 80%;
+			display: flex;
+			flex-direction: row;
+		}
+	`;
+
+	const ButtonStyle = styled.div`
+		cursor: pointer;
+		:hover {
+			opacity: 1;
+		}
 	`;
 
 	useEffect(() => {
@@ -33,6 +58,7 @@ export default function ApplyStatus({}: {}) {
 			data: {
 				startTime: '2024-01-01',
 				endTime: '2024-0-01',
+				status: 'ON',
 			},
 		};
 
@@ -48,6 +74,21 @@ export default function ApplyStatus({}: {}) {
 		return true;
 	};
 
+	const updateApplyStatus = async () => {
+		let updatedStatus;
+
+		if (applyStatusInfo.status === 'ON') {
+			updatedStatus = 'OFF';
+		} else {
+			updatedStatus = 'ON';
+		}
+
+		setApplyStatusInfo({
+			...applyStatusInfo,
+			status: updatedStatus,
+		});
+	};
+
 	if (loading) {
 		return (
 			<BackGroundStyle>
@@ -58,15 +99,29 @@ export default function ApplyStatus({}: {}) {
 
 	return (
 		<BackGroundStyle style={{}}>
-			<LTextWhite text={'취업 기간: '}></LTextWhite>
+			<RoundBoxTemplate className={'box status'}>
+				<LTextWhite text={'취업 기간: '}></LTextWhite>
 
-			{applyStatusInfo.startTime ? (
-				<LTextWhite
-					text={`${applyStatusInfo.startTime} ~ ${applyStatusInfo.endTime}`}
-				></LTextWhite>
-			) : (
-				<LTextWhite text={applyStatusInfo.endTime}></LTextWhite>
-			)}
+				{applyStatusInfo.startTime ? (
+					<LTextWhite
+						text={`${applyStatusInfo.startTime} ~ ${applyStatusInfo.endTime}`}
+					></LTextWhite>
+				) : (
+					<LTextWhite text={applyStatusInfo.endTime}></LTextWhite>
+				)}
+			</RoundBoxTemplate>
+			<ButtonStyle
+				onClick={updateApplyStatus}
+				style={{
+					cursor: 'pointer',
+				}}
+			>
+				<RoundBoxTemplate className={'box button'}>
+					<MTextWhite
+						text={`${applyStatusInfo.status === 'ON' ? 'OFF' : 'ON'}`}
+					></MTextWhite>
+				</RoundBoxTemplate>
+			</ButtonStyle>
 		</BackGroundStyle>
 	);
 }
