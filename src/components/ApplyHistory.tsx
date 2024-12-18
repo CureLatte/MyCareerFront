@@ -44,7 +44,7 @@ export default function ApplyHistory({ historyInfo }: any) {
 			<VerticalLine className={'vertical'} />
 			<div className={'row company'}>{historyInfo.company ?? '-'}</div>
 			<VerticalLine className={'vertical'} />
-			<div className={`row resume}`}>{historyInfo.resumeName ?? '-'}</div>
+			<div className={`row resume`}>{historyInfo.resumeName ?? '-'}</div>
 			<VerticalLine className={'vertical'} />
 			<div className={'row status'}>{historyInfo.status ?? '-'}</div>
 		</BackGroundStyle>

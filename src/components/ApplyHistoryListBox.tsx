@@ -35,7 +35,7 @@ export default function ApplyHistoryListBox() {
 		}
 
 		.row {
-			width: 80px;
+			min-width: 80px;
 			overflow: hidden;
 			text-align: center;
 			white-space: nowrap;
@@ -55,23 +55,23 @@ export default function ApplyHistoryListBox() {
 		}
 
 		.applyDate {
-			width: 100px;
+			width: 20%;
 		}
 
 		.company {
-			width: 60px;
+			width: 20%;
 		}
 
 		.platform {
-			width: 60px;
+			width: 20%;
 		}
 
 		.status {
-			width: 100px;
+			width: 20%;
 		}
 
 		.resume {
-			width: 80px;
+			width: 20%;
 		}
 	`;
 
