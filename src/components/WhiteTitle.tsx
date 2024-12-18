@@ -1,10 +1,13 @@
 import styled from 'styled-components';
-import STextBlack from '@/components/text/STextBlack';
 import MTextBlack from '@/components/text/MTextBlack';
 
 export default function WhiteTitle({ text }: { text: string }) {
+	const textSize = text.length;
+	const widthSize = textSize * 16;
+
 	const BackGroundStyle = styled.div`
-		width: 80px;
+		min-width: 80px;
+		max-width: ${widthSize}px;
 		height: 30px;
 		border-radius: 30px;
 		background-color: #e4e4e4;

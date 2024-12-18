@@ -9,6 +9,7 @@ import styled from 'styled-components';
 import BadgeList from '@/components/BadgeList';
 import BadgeListBox from '@/components/BadgeListBox';
 import LTextWhite from '@/components/text/LTextWhite';
+import ApplyHistoryListBox from '@/components/ApplyHistoryListBox';
 
 export default function DashBoardPage() {
 	const BackGroundStyle = styled.div`
@@ -76,7 +77,7 @@ export default function DashBoardPage() {
 				<BadgeListBox></BadgeListBox>
 			</RoundBoxTemplate>
 			<RoundBoxTemplate className={'box applyList'}>
-				<div>status</div>
+				<ApplyHistoryListBox></ApplyHistoryListBox>
 			</RoundBoxTemplate>
 			<RoundBoxTemplate className={'box applyHistory'}>
 				<div>status</div>

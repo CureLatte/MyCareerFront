@@ -54,7 +54,7 @@ export default function ApplyHistoryList() {
 	}
 
 	return (
-		<BackGround style={{}}>
+		<BackGround className={'applyHistoryList'}>
 			{historyList.map((data: any, index: number) => {
 				return (
 					<ApplyHistory historyInfo={data} key={index}></ApplyHistory>

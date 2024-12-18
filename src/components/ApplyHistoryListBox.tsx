@@ -1,18 +1,38 @@
 'use client';
-import { LIGHT_GRAY_1, LIGHT_GRAY_3 } from '@/const/Color';
+import { DARK_BLUE_3, LIGHT_GRAY_1, LIGHT_GRAY_3 } from '@/const/Color';
 import ApplyHistoryList from '@/components/ApplyHistoryList';
 import styled from 'styled-components';
+import WhiteTitle from '@/components/WhiteTitle';
+import STextWhite from '@/components/text/STextWhite';
 
 export default function ApplyHistoryListBox() {
 	const BackGroundStyle = styled.div`
-		padding: 30px;
-		background-color: ${LIGHT_GRAY_3};
+		// background-color: ${LIGHT_GRAY_3};
 		border-radius: 20px;
-		display: flex;
-		flex-direction: column;
+		// display: flex;
+		// flex-direction: column;
 		gap: 15px;
-		height: 290px;
-		overflow: hidden;
+		height: 100%;
+		overflow-y: scroll;
+		scroll-margin: 10px;
+		padding-right: 20px;
+
+		&::-webkit-scrollbar {
+			background: transparent;
+			border-radius: 15px;
+			width: 10px;
+			height: 50%;
+			margin: 5px;
+		}
+
+		&::-webkit-scrollbar-thumb {
+			background-color: ${LIGHT_GRAY_3};
+			border-radius: 15px;
+		}
+
+		&::-webkit-scrollbar-track {
+			opacity: 0;
+		}
 
 		.row {
 			width: 80px;
@@ -20,6 +40,18 @@ export default function ApplyHistoryListBox() {
 			text-align: center;
 			white-space: nowrap;
 			text-overflow: ellipsis;
+		}
+
+		.header {
+			background-color: ${DARK_BLUE_3};
+			color: white;
+			border-radius: 20px;
+			text-align: center;
+			justify-content: center;
+			align-items: center;
+			display: flex;
+			flex-direction: row;
+			height: 20px;
 		}
 
 		.applyDate {
@@ -45,7 +77,7 @@ export default function ApplyHistoryListBox() {
 
 	return (
 		<BackGroundStyle>
-			<div style={{ fontSize: '20px' }}>최근 지원 내역</div>
+			<WhiteTitle text={'최근 지원 내역'}></WhiteTitle>
 			<div
 				style={{
 					display: 'flex',
@@ -53,13 +85,25 @@ export default function ApplyHistoryListBox() {
 					gap: '10px',
 					width: '100%',
 					justifyContent: 'center',
+					marginTop: '10px',
+					marginBottom: '10px',
 				}}
 			>
-				<div className={'row applyDate'}>지원 날짜</div>
-				<div className={'row platform'}>플랫폼</div>
-				<div className={'row company'}>회사</div>
-				<div className={'row resume'}>이력서</div>
-				<div className={'row status'}>상태</div>
+				<div className={'row header applyDate'}>
+					<STextWhite text={'지원날짜'}></STextWhite>
+				</div>
+				<div className={'row header platform'}>
+					<STextWhite text={'플랫폼'}></STextWhite>
+				</div>
+				<div className={'row header company'}>
+					<STextWhite text={'회사'}></STextWhite>
+				</div>
+				<div className={'row header resume'}>
+					<STextWhite text={'이력서'}></STextWhite>
+				</div>
+				<div className={'row header status'}>
+					<STextWhite text={'상태'}></STextWhite>
+				</div>
 			</div>
 			<ApplyHistoryList />
 		</BackGroundStyle>
