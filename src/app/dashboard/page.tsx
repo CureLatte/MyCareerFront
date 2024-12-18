@@ -35,7 +35,8 @@ export default function DashBoardPage() {
 
 		.applyStatus {
 			grid-area: applyStatus;
-			width: 900px;
+			max-width: 100%;
+			width: 800px;
 			padding: 0;
 			margin: 0;
 		}

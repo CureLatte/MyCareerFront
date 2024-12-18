@@ -1,6 +1,12 @@
+'use client';
+import { useEffect } from 'react';
 
 export default function Home() {
-  return (
-    <div>hello</div>
-  );
+	useEffect(() => {
+		if (window) {
+			window.location.href = '/dashboard';
+		}
+	}, []);
+
+	return <div>hello</div>;
 }
