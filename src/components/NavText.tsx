@@ -1,3 +1,4 @@
+'use client';
 import {
 	BACKGROUND_GRAY,
 	DARK_BLUE_3,
@@ -5,26 +6,30 @@ import {
 	LIGHT_GRAY_4,
 } from '@/const/Color';
 import Link from 'next/link';
-import LTextWhite from '@/components/text/LTextWhite';
+import styled from 'styled-components';
 
 export default function NavText({ text, activate, onClick, url }: any) {
-	let textStyle: any = {
-		display: 'flex',
-		flexDirection: 'row',
-		alignItems: 'center',
-		justifyContent: 'center',
+	const BackGroundStyle = styled(Link)`
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		margin-top: 10px;
+		margin-bottom: 10px;
+		width: 150px;
+		height: 60px;
+		cursor: pointer;
+		font-size: 20px;
+		text-decoration: none;
+		border-radius: 20px;
+		color: ${LIGHT_GRAY_4};
+		background-color: ${DARK_BLUE_4};
+		&:hover {
+			box-shadow: 0 0 0 5px ${DARK_BLUE_3};
+		}
+	`;
 
-		marginTop: '10px',
-		marginBottom: '10px',
-		width: '150px',
-		height: '60px',
-		cursor: 'pointer',
-		fontSize: '20px',
-		textDecoration: 'none',
-		borderRadius: '20px',
-		color: LIGHT_GRAY_4,
-		backgroundColor: DARK_BLUE_4,
-	};
+	let textStyle: any = {};
 	if (activate) {
 		// 선택시
 		textStyle = {
@@ -35,8 +40,8 @@ export default function NavText({ text, activate, onClick, url }: any) {
 	}
 
 	return (
-		<Link href={url} onClick={onClick} style={textStyle}>
+		<BackGroundStyle href={url} onClick={onClick} style={textStyle}>
 			{text}
-		</Link>
+		</BackGroundStyle>
 	);
 }
