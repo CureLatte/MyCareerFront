@@ -5,7 +5,7 @@ export default function MainPage({ children }: any) {
 		<div
 			style={{
 				background: DARK_BLUE_2,
-				width: '100%',
+				width: 'calc(100vw - 240px)',
 				minHeight: '100vh',
 				overflow: 'auto',
 			}}
