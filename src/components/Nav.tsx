@@ -10,20 +10,28 @@ import { useState } from 'react';
 export default function Nav({}: any) {
 	const [activateTab, setActivateTab] = useState(0);
 
-	const navList = [
+	const defaultNavList = [
 		{
 			title: '대시 보드',
 			url: '/dashboard',
+			alarmYn: false,
 		},
 		{
 			title: '지원 현황',
 			url: '/apply',
+			alarmYn: false,
 		},
 		{
 			title: '이력서 관리',
 			url: '/resume',
+			alarmYn: true,
 		},
 	];
+
+	const [navList, setNavList] =
+		useState<{ title: string; url: string; alarmYn: boolean }[]>(
+			defaultNavList,
+		);
 
 	return (
 		<nav
@@ -63,15 +71,21 @@ export default function Nav({}: any) {
 				}}
 			></div>
 			{navList.map(
-				(item: { title: string; url: string }, index: number) => {
+				(
+					item: { title: string; url: string; alarmYn: boolean },
+					index: number,
+				) => {
 					return (
 						<NavText
 							key={index}
 							onClick={() => {
 								setActivateTab(Number(index));
+								navList[index].alarmYn = false;
+								setNavList([...navList]);
 							}}
 							text={item.title}
 							url={item.url}
+							alarmYn={item.alarmYn}
 							activate={Number(index) === Number(activateTab)}
 						></NavText>
 					);
