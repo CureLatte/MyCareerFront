@@ -77,10 +77,10 @@ export default function DashBoardPage() {
 				<BadgeListBox></BadgeListBox>
 			</RoundBoxTemplate>
 			<RoundBoxTemplate className={'box applyList'}>
-				<ApplyHistoryListBox></ApplyHistoryListBox>
+				<div>status</div>
 			</RoundBoxTemplate>
 			<RoundBoxTemplate className={'box applyHistory'}>
-				<div>status</div>
+				<ApplyHistoryListBox></ApplyHistoryListBox>
 			</RoundBoxTemplate>
 			<RoundBoxTemplate className={'box aside'}>
 				<div>status</div>

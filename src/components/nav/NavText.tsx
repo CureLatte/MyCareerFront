@@ -9,11 +9,14 @@ import {
 import Link from 'next/link';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
+import NavIcon from '@/components/nav/NavIcon';
 
 export default function NavText({
 	text,
 	activate,
 	alarmYn,
+	subTabYn,
+	openYn,
 	onClick,
 	url,
 }: any) {
@@ -39,13 +42,6 @@ export default function NavText({
 		}
 	`;
 
-	const AlarmDot = styled.div`
-		width: 10px;
-		height: 10px;
-		background-color: ${WHITE_0};
-		border-radius: 50%;
-	`;
-
 	let textStyle: any = {};
 	if (activate) {
 		// 선택시
@@ -57,10 +53,33 @@ export default function NavText({
 		alarmYn = true;
 	}
 
+	if (subTabYn) {
+		textStyle = {
+			...textStyle,
+			width: '120px',
+			height: '40px',
+			fontSize: '16px',
+		};
+	}
+
+	// openYn, alarmYn, activate
+
+	let iconType = '';
+
+	if (subTabYn) {
+		iconType = 'none';
+	} else if (activate && openYn) {
+		iconType = 'none';
+	} else if (activate && !openYn) {
+		iconType = 'none';
+	} else if (alarmYn) {
+		iconType = 'alarm';
+	}
+
 	return (
 		<BackGroundStyle href={url} onClick={onClick} style={textStyle}>
 			{text}
-			{!activate && alarmYn && <AlarmDot></AlarmDot>}
+			{!subTabYn && <NavIcon type={iconType}></NavIcon>}
 		</BackGroundStyle>
 	);
 }
