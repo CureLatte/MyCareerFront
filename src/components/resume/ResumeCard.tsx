@@ -29,7 +29,12 @@ export default function ResumeCard({ resumeInfo }: { resumeInfo: ResumeInfo }) {
 			onMouseEnter={() => setHover(true)}
 			onMouseLeave={() => setHover(false)}
 		>
-			<BranchName branchName={resumeInfo.branch} />
+			<BranchName
+				branchName={resumeInfo.branch}
+				style={{
+					position: 'absolute',
+				}}
+			/>
 			<LTextWhite text={resumeInfo.title} />
 			<STextWhite text={resumeInfo.updatedAt} />
 			{hover && (

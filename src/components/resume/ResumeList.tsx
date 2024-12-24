@@ -10,7 +10,7 @@ import ResumePreview from '@/components/resume/ResumePreview';
 export default function ResumeList() {
 	const BackGroundStyle = styled.div``;
 
-	const [resumeType, setResumeType] = useState<string>('card');
+	const [resumeType, setResumeType] = useState<string>('row');
 
 	const resumeList: ResumeInfo[] = [
 		{
@@ -50,20 +50,28 @@ export default function ResumeList() {
 		},
 	];
 
+	let listStyle = {
+		backgroundColor: 'white',
+		columnWidth: '140px',
+		columnCount: '3',
+		// columnGap: '0px',
+		margin: '0',
+		width: '50%',
+		overflow: 'auto',
+	};
+
+	if (resumeType === 'row') {
+		listStyle = {
+			...listStyle,
+			columnCount: '',
+			columnWidth: '',
+		};
+	}
+
 	return (
 		<BackGroundStyle>
 			<ResumeFilter />
-			<div
-				style={{
-					backgroundColor: 'white',
-					columnWidth: '140px',
-					columnCount: '3',
-					// columnGap: '0px',
-					margin: '0',
-					width: '50%',
-					overflow: 'auto',
-				}}
-			>
+			<div style={listStyle}>
 				{resumeList.map((item, i) => {
 					if (resumeType === 'card') {
 						return <ResumeCard key={i} resumeInfo={item} />;

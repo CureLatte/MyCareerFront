@@ -5,7 +5,13 @@ import styled from 'styled-components';
 import { DARK_BLUE_4, WHITE_SKY_0 } from '@/const/Color';
 import SText from '@/components/text/SText';
 
-export default function BranchName({ branchName }: { branchName: string }) {
+export default function BranchName({
+	branchName,
+	style,
+}: {
+	branchName: string;
+	style?: any;
+}) {
 	const textWidth = branchName.length * 10;
 
 	if (textWidth > 100) {
@@ -13,7 +19,6 @@ export default function BranchName({ branchName }: { branchName: string }) {
 	}
 
 	const BackGroundStyle = styled.div`
-		position: absolute;
 		left: 10px;
 		top: 10px;
 		min-width: 50px;
@@ -38,7 +43,7 @@ export default function BranchName({ branchName }: { branchName: string }) {
 	`;
 
 	return (
-		<BackGroundStyle>
+		<BackGroundStyle style={style}>
 			<SText text={branchName} style={{}} />
 		</BackGroundStyle>
 	);
