@@ -1,3 +1,10 @@
-export default function ListPage() {
-	return <div>리스트 조회</div>;
+import RoundBoxTemplate from '@/components/RoundBoxTemplate';
+import ResumeList from '@/components/resume/ResumeList';
+
+export default function ResumeListPage() {
+	return (
+		<RoundBoxTemplate>
+			<ResumeList></ResumeList>
+		</RoundBoxTemplate>
+	);
 }

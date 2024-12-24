@@ -1,6 +1,6 @@
 import Text from '@/components/text/Text';
 
-export default function SText({ text, style }: { text: string; style: any }) {
+export default function SText({ text, style }: { text: string; style?: any }) {
 	return (
 		<Text
 			text={text}
