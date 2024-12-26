@@ -10,6 +10,7 @@ export const LIGHT_GRAY_3 = '#9E9E9E';
 
 export const LIGHT_GRAY_4 = '#8E9195';
 
+export const DARK = '#000000';
 export const DARK_BLUE_2 = '#26303D';
 export const DARK_BLUE_3 = '#222327';
 
@@ -26,3 +27,5 @@ export const DARK_GRAY_3 = '#666666';
 export const WHITE_0 = '#FBFBFB';
 
 export const WHITE_SKY_0 = '#C1CEE6';
+
+export const WHITE_1 = '#DFE4EE';

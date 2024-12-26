@@ -1,13 +1,17 @@
 'use client';
 import styled from 'styled-components';
-import { ResumeInfo } from '@/type/Resume';
+import { ResumeInfoType } from '@/type/Resume';
 import { DARK_BLUE_4, DARK_GRAY_1, DARK_GRAY_2 } from '@/const/Color';
 import LTextWhite from '@/components/text/LTextWhite';
 import STextWhite from '@/components/text/STextWhite';
 import BranchName from '@/components/resume/BranchName';
 import { useState } from 'react';
 
-export default function ResumeCard({ resumeInfo }: { resumeInfo: ResumeInfo }) {
+export default function ResumeCard({
+	resumeInfo,
+}: {
+	resumeInfo: ResumeInfoType;
+}) {
 	const [hover, setHover] = useState<boolean>(false);
 
 	const BackGroundStyle = styled.div`
@@ -22,6 +26,7 @@ export default function ResumeCard({ resumeInfo }: { resumeInfo: ResumeInfo }) {
 		justify-content: center;
 		gap: 20px;
 		margin: 10px;
+		cursor: pointer;
 	`;
 
 	return (

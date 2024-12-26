@@ -4,15 +4,28 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import ResumeCard from '@/components/resume/ResumeCard';
 import ResumeRow from '@/components/resume/ResumeRow';
-import { ResumeInfo } from '@/type/Resume';
+import { ResumeInfoType, ResumeFilterType } from '@/type/Resume';
 import ResumePreview from '@/components/resume/ResumePreview';
 
 export default function ResumeList() {
-	const BackGroundStyle = styled.div``;
+	const BackGroundStyle = styled.div`
+		background-color: white;
+		display: flex;
+		flex-direction: row;
 
-	const [resumeType, setResumeType] = useState<string>('row');
+		.container {
+			width: 50%;
+		}
+	`;
 
-	const resumeList: ResumeInfo[] = [
+	const [resumeFilter, setResumeFilter] = useState<ResumeFilterType>({
+		type: 'card',
+		branch: [],
+		order: 'createdAt',
+		orderType: 1,
+	});
+
+	const resumeList: ResumeInfoType[] = [
 		{
 			resume_id: 1,
 			branch: 'branch1dfdfdfdfdfdfdfdfdf',
@@ -51,16 +64,16 @@ export default function ResumeList() {
 	];
 
 	let listStyle = {
-		backgroundColor: 'white',
+		// backgroundColor: 'white',
 		columnWidth: '140px',
 		columnCount: '3',
 		// columnGap: '0px',
 		margin: '0',
-		width: '50%',
+		width: '100%',
 		overflow: 'auto',
 	};
 
-	if (resumeType === 'row') {
+	if (resumeFilter.type === 'row') {
 		listStyle = {
 			...listStyle,
 			columnCount: '',
@@ -70,19 +83,26 @@ export default function ResumeList() {
 
 	return (
 		<BackGroundStyle>
-			<ResumeFilter />
-			<div style={listStyle}>
-				{resumeList.map((item, i) => {
-					if (resumeType === 'card') {
-						return <ResumeCard key={i} resumeInfo={item} />;
-					} else if (resumeType === 'row') {
-						return <ResumeRow key={i} resumeInfo={item} />;
-					} else {
-						return <div key={i}></div>;
-					}
-				})}
+			<div className={'container'}>
+				<ResumeFilter
+					resumeFilter={resumeFilter}
+					setResumeFilter={setResumeFilter}
+				/>
+				<div style={listStyle}>
+					{resumeList.map((item, i) => {
+						if (resumeFilter.type === 'card') {
+							return <ResumeCard key={i} resumeInfo={item} />;
+						} else if (resumeFilter.type === 'row') {
+							return <ResumeRow key={i} resumeInfo={item} />;
+						} else {
+							return <div key={i}></div>;
+						}
+					})}
+				</div>
 			</div>
-			<ResumePreview></ResumePreview>
+			<div className={'container'}>
+				<ResumePreview></ResumePreview>
+			</div>
 		</BackGroundStyle>
 	);
 }

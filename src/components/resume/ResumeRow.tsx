@@ -1,6 +1,6 @@
 'use client';
 import styled from 'styled-components';
-import { ResumeInfo } from '@/type/Resume';
+import { ResumeInfoType } from '@/type/Resume';
 import {
 	DARK_BLUE_4,
 	DARK_BLUE_5,
@@ -12,7 +12,11 @@ import BranchName from '@/components/resume/BranchName';
 import MTextWhite from '@/components/text/MTextWhite';
 import { useState } from 'react';
 
-export default function ResumeRow({ resumeInfo }: { resumeInfo: ResumeInfo }) {
+export default function ResumeRow({
+	resumeInfo,
+}: {
+	resumeInfo: ResumeInfoType;
+}) {
 	const BackGroundStyle = styled.div`
 		width: 100%;
 		height: 40px;
