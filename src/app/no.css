@@ -12,15 +12,15 @@ h4,
 h5,
 h6,
 p,
-blockquote,
-pre,
+/*blockquote,*/
+/*pre,*/
 a,
 abbr,
 acronym,
 address,
 big,
 cite,
-code,
+/*code,*/
 del,
 dfn,
 em,
@@ -45,8 +45,8 @@ dl,
 dt,
 dd,
 ol,
-ul,
-li,
+/*ul,*/
+/*li,*/
 fieldset,
 form,
 label,
@@ -82,7 +82,7 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
-  font: inherit;
+  /*font-size: 100%;*/
+  /*font: inherit;*/
   vertical-align: baseline;
 }

@@ -9,12 +9,14 @@ import ResumePreview from '@/components/resume/ResumePreview';
 
 export default function ResumeList() {
 	const BackGroundStyle = styled.div`
-		background-color: white;
+		// background-color: white;
 		display: flex;
 		flex-direction: row;
 
 		.container {
 			width: 50%;
+			padding: 10px;
+			box-sizing: border-box;
 		}
 	`;
 
@@ -71,6 +73,8 @@ export default function ResumeList() {
 		margin: '0',
 		width: '100%',
 		overflow: 'auto',
+		padding: '10px',
+		boxSizing: 'border-box',
 	};
 
 	if (resumeFilter.type === 'row') {

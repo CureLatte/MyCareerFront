@@ -60,13 +60,14 @@ export default function ResumeFilter({
 
 	const BackGroundStyle = styled.div`
 		background-color: ${DARK_BLUE_3};
-		width: calc(100% - 20px);
+		width: 100%;
 		display: flex;
 		flex-direction: column;
 		align-items: start;
 		justify-content: start;
 		padding: 10px;
 		border-radius: 20px;
+		box-sizing: border-box;
 
 		.list {
 			display: flex;
