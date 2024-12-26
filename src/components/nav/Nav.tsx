@@ -30,7 +30,7 @@ export default function Nav({}: any) {
 			style={{
 				backgroundColor: DARK_BLUE_4,
 				margin: '20px',
-				width: '200px',
+				width: '170px',
 				borderRadius: '20px',
 				padding: '20px 0 20px 0',
 				display: 'flex',
@@ -40,7 +40,7 @@ export default function Nav({}: any) {
 		>
 			<div
 				style={{
-					width: '150px',
+					width: '100px',
 					height: '60px',
 					backgroundColor: 'white',
 					borderRadius: '20px',

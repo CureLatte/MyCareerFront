@@ -19,7 +19,7 @@ export default function RoundBoxTemplate({
 		background-color: ${DARK_BLUE_4};
 		border-radius: 20px;
 		padding: 20px;
-		margin: 30px;
+		// margin: 30px;
 	`;
 
 	return <BackGroundStyle className={className}>{children}</BackGroundStyle>;

@@ -12,6 +12,7 @@ export default function ResumeList() {
 		// background-color: white;
 		display: flex;
 		flex-direction: row;
+		min-height: 100%;
 
 		.container {
 			width: 50%;
@@ -65,7 +66,7 @@ export default function ResumeList() {
 		},
 	];
 
-	let listStyle = {
+	let listStyle: any = {
 		// backgroundColor: 'white',
 		columnWidth: '140px',
 		columnCount: '3',

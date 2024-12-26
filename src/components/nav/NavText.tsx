@@ -24,13 +24,15 @@ export default function NavText({
 		display: flex;
 		flex-direction: row;
 		align-items: center;
-		justify-content: center;
+		justify-content: start;
 		margin-top: 10px;
 		margin-bottom: 10px;
-		width: 150px;
+		width: 140px;
+		padding: 10px;
+		box-sizing: border-box;
 		height: 60px;
 		cursor: pointer;
-		font-size: 20px;
+		font-size: 16px;
 		text-decoration: none;
 		border-radius: 20px;
 		color: ${LIGHT_GRAY_4};
@@ -58,7 +60,8 @@ export default function NavText({
 			...textStyle,
 			width: '120px',
 			height: '40px',
-			fontSize: '16px',
+			fontSize: '14px',
+			textIndent: '20px',
 		};
 	}
 

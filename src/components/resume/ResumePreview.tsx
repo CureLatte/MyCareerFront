@@ -135,7 +135,7 @@ select * from database;
 					color: 'white',
 					borderRadius: '20px',
 					padding: '20px',
-					maxHeight: '700px',
+					maxHeight: '100%',
 					overflowY: 'auto',
 					boxSizing: 'border-box',
 					scrollbarColor: 'transparent',

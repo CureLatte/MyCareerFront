@@ -68,13 +68,14 @@ export default function ResumeRow({
 						bottom: '10px',
 						backgroundColor: DARK_BLUE_4,
 						color: 'white',
-						width: '130px',
+						width: '80px',
 						height: '30px',
 						borderRadius: '20px',
 						display: 'flex',
 						flexDirection: 'row',
 						alignItems: 'center',
 						justifyContent: 'center',
+						fontSize: '12px',
 					}}
 				>
 					수정하기

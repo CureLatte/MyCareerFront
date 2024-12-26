@@ -13,5 +13,13 @@ export default function ListLayOut({
 		setActivateTab(3);
 	}, []);
 
-	return <div>{children}</div>;
+	return (
+		<div
+			style={{
+				margin: '20px 20px 20px 0',
+			}}
+		>
+			{children}
+		</div>
+	);
 }
