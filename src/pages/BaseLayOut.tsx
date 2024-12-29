@@ -11,7 +11,7 @@ export default function BaseLayOut({ children }: any) {
 			style={{
 				display: 'flex',
 				flexDirection: 'row',
-				width: '100vw',
+				// width: '100vw',
 				backgroundColor: DARK_BLUE_2,
 			}}
 		>

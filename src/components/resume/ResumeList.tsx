@@ -6,6 +6,7 @@ import ResumeCard from '@/components/resume/ResumeCard';
 import ResumeRow from '@/components/resume/ResumeRow';
 import { ResumeInfoType, ResumeFilterType } from '@/type/Resume';
 import ResumePreview from '@/components/resume/ResumePreview';
+import { DARK_BLUE_3, DARK_BLUE_4 } from '@/const/Color';
 
 export default function ResumeList() {
 	const BackGroundStyle = styled.div`
@@ -28,6 +29,8 @@ export default function ResumeList() {
 		orderType: 1,
 	});
 
+	const [selectResumeId, setSelectResumeId] = useState<number | null>(null);
+
 	const resumeList: ResumeInfoType[] = [
 		{
 			resume_id: 1,
@@ -37,28 +40,28 @@ export default function ResumeList() {
 			updatedAt: '2024-01-01',
 		},
 		{
-			resume_id: 1,
+			resume_id: 2,
 			branch: 'branch2',
 			title: 'title',
 			createdAt: '2024-01-01',
 			updatedAt: '2024-01-01',
 		},
 		{
-			resume_id: 1,
+			resume_id: 3,
 			branch: 'branch3',
 			title: 'title',
 			createdAt: '2024-01-01',
 			updatedAt: '2024-01-01',
 		},
 		{
-			resume_id: 1,
+			resume_id: 4,
 			branch: 'branch4',
 			title: 'title',
 			createdAt: '2024-01-01',
 			updatedAt: '2024-01-01',
 		},
 		{
-			resume_id: 1,
+			resume_id: 5,
 			branch: 'branch5',
 			title: 'title',
 			createdAt: '2024-01-01',
@@ -81,8 +84,9 @@ export default function ResumeList() {
 	if (resumeFilter.type === 'row') {
 		listStyle = {
 			...listStyle,
-			columnCount: '',
-			columnWidth: '',
+			columnCount: '1',
+			columnWidth: '100%',
+			rowGap: '10px',
 		};
 	}
 
@@ -96,9 +100,35 @@ export default function ResumeList() {
 				<div style={listStyle}>
 					{resumeList.map((item, i) => {
 						if (resumeFilter.type === 'card') {
-							return <ResumeCard key={i} resumeInfo={item} />;
+							return (
+								<ResumeCard
+									key={i}
+									resumeInfo={item}
+									selected={selectResumeId === item.resume_id}
+									onClick={() => {
+										if (selectResumeId === item.resume_id) {
+											return setSelectResumeId(null);
+										}
+
+										setSelectResumeId(item.resume_id);
+									}}
+								/>
+							);
 						} else if (resumeFilter.type === 'row') {
-							return <ResumeRow key={i} resumeInfo={item} />;
+							return (
+								<ResumeRow
+									key={i}
+									resumeInfo={item}
+									selected={selectResumeId === item.resume_id}
+									onClick={() => {
+										if (selectResumeId === item.resume_id) {
+											return setSelectResumeId(null);
+										}
+
+										setSelectResumeId(item.resume_id);
+									}}
+								/>
+							);
 						} else {
 							return <div key={i}></div>;
 						}
@@ -106,7 +136,7 @@ export default function ResumeList() {
 				</div>
 			</div>
 			<div className={'container'}>
-				<ResumePreview></ResumePreview>
+				<ResumePreview resumeId={selectResumeId}></ResumePreview>
 			</div>
 		</BackGroundStyle>
 	);

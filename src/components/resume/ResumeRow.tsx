@@ -2,10 +2,14 @@
 import styled from 'styled-components';
 import { ResumeInfoType } from '@/type/Resume';
 import {
+	DARK_BLUE_2,
+	DARK_BLUE_3,
 	DARK_BLUE_4,
 	DARK_BLUE_5,
+	DARK_GRAY_2,
 	DARK_GRAY_3,
 	LIGHT_GRAY_1,
+	WHITE_1,
 } from '@/const/Color';
 import STextWhite from '@/components/text/STextWhite';
 import BranchName from '@/components/resume/BranchName';
@@ -14,8 +18,12 @@ import { useState } from 'react';
 
 export default function ResumeRow({
 	resumeInfo,
+	selected,
+	onClick,
 }: {
 	resumeInfo: ResumeInfoType;
+	selected?: boolean;
+	onClick?: () => void;
 }) {
 	const BackGroundStyle = styled.div`
 		width: 100%;
@@ -23,19 +31,27 @@ export default function ResumeRow({
 		background-color: ${DARK_GRAY_3};
 		border-radius: 20px;
 		position: relative;
-		display: flex;
+		display: inline-flex;
 		flex-direction: row;
 		align-items: center;
 		justify-content: space-around;
 		gap: 10px;
 		float: left;
+		margin: 5px 0 5px 0;
+
+		background-color: ${selected ? `${DARK_BLUE_4}` : `${DARK_GRAY_3}`};
+
+		border: ${selected
+			? `5px solid ${DARK_BLUE_2}`
+			: `5px solid ${DARK_GRAY_3}`};
+
 		&:hover {
-			background-color: ${DARK_BLUE_5};
+			border: 5px solid ${DARK_BLUE_2};
 		}
 	`;
 
 	return (
-		<BackGroundStyle>
+		<BackGroundStyle onClick={onClick}>
 			<div
 				style={{
 					width: '50%',
