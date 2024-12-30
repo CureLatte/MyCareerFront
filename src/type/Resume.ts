@@ -1,5 +1,5 @@
 export type ResumeInfoType = {
-	resume_id: number;
+	resumeId: number;
 	branch: string;
 	title: string;
 	createdAt: string;
@@ -7,7 +7,7 @@ export type ResumeInfoType = {
 };
 
 export type ResumeDetailInfoType = {
-	resume_id: number;
+	resumeId: number;
 	branch: string;
 	title: string;
 	content: string;

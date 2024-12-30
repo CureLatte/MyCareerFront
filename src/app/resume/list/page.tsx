@@ -1,5 +1,5 @@
 import RoundBoxTemplate from '@/components/RoundBoxTemplate';
-import ResumeList from '@/components/resume/ResumeList';
+import ResumeList from '@/components/resume/resumeListType/ResumeList';
 
 export default function ResumeListPage() {
 	return (

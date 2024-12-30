@@ -9,8 +9,6 @@ import styled from 'styled-components';
 // import '@/app/no.css';
 
 export default function ResumeMarkdown({ content }: { content: string }) {
-	const backGroundStyle = styled.div``;
-
 	return (
 		<div
 			style={{
@@ -31,7 +29,7 @@ export default function ResumeMarkdown({ content }: { content: string }) {
 			<Markdown
 				rehypePlugins={[remarkGfm]}
 				components={{
-					code(props) {
+					code: function (props) {
 						const { children, className, node, ...rest } = props;
 						const match = /language-(\w+)/.exec(className || '');
 
@@ -39,10 +37,12 @@ export default function ResumeMarkdown({ content }: { content: string }) {
 
 						return (
 							<SyntaxHighlighter
-								{...rest}
+								// {...rest}
 								PreTag="div"
 								language={
-									match?.length || 0 > 0 ? match[1] : 'shell'
+									match && match.length > 0
+										? match[1]
+										: 'shell'
 								}
 								style={dracula}
 							>

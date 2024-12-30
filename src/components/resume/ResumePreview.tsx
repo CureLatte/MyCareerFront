@@ -101,7 +101,7 @@ select * from database;
 
 		if (resumeId === 1) {
 			setResumeDetailInfo({
-				resume_id: 1,
+				resumeId: 1,
 				branch: 'string',
 				title: 'string',
 				content: content,
@@ -110,7 +110,7 @@ select * from database;
 			});
 		} else if (resumeId === 2) {
 			setResumeDetailInfo({
-				resume_id: 1,
+				resumeId: 1,
 				branch: 'string',
 				title: 'string',
 				content: `
@@ -130,7 +130,7 @@ console.log('itWorkds');
 			});
 		} else if (resumeId === 3) {
 			setResumeDetailInfo({
-				resume_id: 1,
+				resumeId: 1,
 				branch: 'string',
 				title: 'string',
 				content: `
