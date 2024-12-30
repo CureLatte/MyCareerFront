@@ -5,12 +5,15 @@ import React, { useEffect, useState } from 'react';
 import { DARK_BLUE_2, DARK_BLUE_5 } from '@/const/Color';
 import ResumeMarkdown from '@/components/resume/ResumeMarkdown';
 import { ResumeDetailInfoType } from '@/type/Resume';
+import { getResumeDetailAPI } from '@/api/ResumeApi';
+import LTextWhite from '@/components/text/LTextWhite';
 
 export default function ResumePreview({
 	resumeId,
 }: {
 	resumeId: number | null;
 }) {
+	const [loading, setLoading] = useState(true);
 	const [resumeDetailInfo, setResumeDetailInfo] =
 		useState<ResumeDetailInfoType | null>(null);
 
@@ -21,160 +24,32 @@ export default function ResumePreview({
 	`;
 
 	useEffect(() => {
-		getData().then(() => {
-			console.log('done');
-		});
+		getData(resumeId)
+			.then(() => {
+				console.log('done');
+				setLoading(false);
+			})
+			.catch((e) => {
+				console.log('ERROR!', e);
+				setLoading(true);
+			});
 	}, [resumeId]);
 
-	const getData = async () => {
+	const getData = async (resumeId: number | null) => {
+		if (!resumeId) {
+			return;
+		}
+
 		// get contents
 
-		const content = `
-# 대제목
+		const response = await getResumeDetailAPI(resumeId);
 
-## 소제목
-
-### 소제목 2
-
-
-*** 
-
-- [ ] 리스트 11
-	- [ ] 리스트 11
-	
-> line
-
-
-
-~~~js
-console.log('It works!')
-
-~~~
-
-
-
-~~~ 
-hello
-~~~
-
-
-
-~~~ 
-hello
-~~~
-
-
-~~~ 
-hello
-~~~
-
-
-~~~ 
-hello
-~~~
-
-
-~~~
-hello
-~~~
-
-
-~~~ 
-hello
-~~~
-
-
-adfafadsfadsfadsfadfadsfadsfadsfadsfadsfadsfasdf  
-  adfadfadsfadfa
-그래서~~
-
-
-~~~mysql
-hello
-select * from database;
-~~~
-
-
-- heloow
-* hellow 22
-`;
-
-		if (resumeId === 1) {
-			setResumeDetailInfo({
-				resumeId: 1,
-				branch: 'string',
-				title: 'string',
-				content: content,
-				createdAt: 'string',
-				updatedAt: 'string',
-			});
-		} else if (resumeId === 2) {
-			setResumeDetailInfo({
-				resumeId: 1,
-				branch: 'string',
-				title: 'string',
-				content: `
-그래서
-
-
-## hello
-
-~~~js
-const test = updasted;
-console.log('itWorkds');
-~~~
-
-`,
-				createdAt: 'string',
-				updatedAt: 'string',
-			});
-		} else if (resumeId === 3) {
-			setResumeDetailInfo({
-				resumeId: 1,
-				branch: 'string',
-				title: 'string',
-				content: `
-# 대제목 
-
-## 소제목
-
-### 소제목 2
-
-
-***
-
-
-- [ ] 리스트 11
-	- [ ] 리스트 11
-	
-> line
-
-그래서~~
-~~~
-hello
-~~~
-~~~ 
-hello
-~~~
-~~~
-hello
-~~~
-~~~ 
-hello
-~~~
-~~~mysql
-hello
-select * from database;
-~~~
-
-- heloow
-	* hellow 22
-
-`,
-				createdAt: 'string',
-				updatedAt: 'string',
-			});
+		console.log(response);
+		if (!response.ok) {
+			throw new Error('response Error');
 		}
+
+		setResumeDetailInfo(response.data);
 	};
 
 	return (
@@ -194,13 +69,19 @@ select * from database;
 			>
 				<MTextWhite text={'미리보기'}></MTextWhite>
 			</div>
-			<ResumeMarkdown
-				content={
-					resumeDetailInfo
-						? resumeDetailInfo.content
-						: '이력서를 선택해주세요'
-				}
-			></ResumeMarkdown>
+			{loading ? (
+				<div>
+					<LTextWhite text={'로딩중입니다.'} />
+				</div>
+			) : (
+				<ResumeMarkdown
+					content={
+						resumeDetailInfo
+							? resumeDetailInfo.content
+							: '이력서를 선택해주세요'
+					}
+				></ResumeMarkdown>
+			)}
 		</BackGroundStyle>
 	);
 }

@@ -34,11 +34,6 @@ export const getResumeListAPI = async (
 export const getResumeDetailAPI = async (
 	resumeId: number,
 ): Promise<ResponseType<ResumeDetailInfoType>> => {
-	const response = await baseApi(`/resume/${resumeId}/detail`, {
-		method: 'GET',
-	});
-
-	// return response.data;
 	return {
 		ok: true,
 		data: {
@@ -50,4 +45,10 @@ export const getResumeDetailAPI = async (
 			updatedAt: '2024-01-01',
 		},
 	};
+
+	// const response = await baseApi(`/resume/${resumeId}/detail`, {
+	// 	method: 'GET',
+	// });
+
+	// return response.data;
 };
