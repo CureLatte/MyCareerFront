@@ -6,54 +6,28 @@ import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { dracula } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import React from 'react';
 import styled from 'styled-components';
+import MDEditor from '@uiw/react-md-editor';
 // import '@/app/no.css';
 
 export default function ResumeMarkdown({ content }: { content: string }) {
 	return (
-		<div
+		<MDEditor.Markdown
 			style={{
 				maxWidth: '100%',
 				width: '100%',
 				justifySelf: 'center',
-				backgroundColor: DARK_BLUE_2,
+				// backgroundColor: DARK_BLUE_2,
 				color: 'white',
 				borderRadius: '20px',
 				padding: '20px',
-				minHeight: '500px',
-				maxHeight: '100%',
+				height: '600px',
 				overflow: 'auto',
 				boxSizing: 'border-box',
 				scrollbarColor: 'transparent',
 			}}
-		>
-			<Markdown
-				rehypePlugins={[remarkGfm]}
-				components={{
-					code: function (props) {
-						const { children, className, node, ...rest } = props;
-						const match = /language-(\w+)/.exec(className || '');
-
-						console.log(`match: ${match}`, match, rest);
-
-						return (
-							<SyntaxHighlighter
-								// {...rest}
-								PreTag="div"
-								language={
-									match && match.length > 0
-										? match[1]
-										: 'shell'
-								}
-								style={dracula}
-							>
-								{String(children).replace(/\n$/, '')}
-							</SyntaxHighlighter>
-						);
-					},
-				}}
-			>
-				{content}
-			</Markdown>
-		</div>
+			className={'markdownDiv'}
+			data-color-mode={'dark'}
+			source={content}
+		/>
 	);
 }

@@ -6,8 +6,9 @@ export default function MainPage({ children }: any) {
 			style={{
 				background: DARK_BLUE_2,
 				width: 'calc(100vw - 240px)',
-				minHeight: '100vh',
+				// minHeight: '100vh',
 				overflow: 'auto',
+				margin: '20px 20px 20px 0px',
 			}}
 		>
 			{children}

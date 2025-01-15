@@ -4,7 +4,7 @@ import MTextWhite from '@/components/text/MTextWhite';
 import React, { useEffect, useState } from 'react';
 import { DARK_BLUE_2, DARK_BLUE_5 } from '@/const/Color';
 import ResumeMarkdown from '@/components/resume/ResumeMarkdown';
-import { ResumeDetailInfoType } from '@/type/Resume';
+import { ResumeDetailInfoType } from '@/type/ResumeType';
 import { getResumeDetailAPI } from '@/api/ResumeApi';
 import LTextWhite from '@/components/text/LTextWhite';
 

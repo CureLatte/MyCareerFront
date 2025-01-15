@@ -1,6 +1,6 @@
 'use client';
-import { ResumeInfoType } from '@/type/Resume';
-import ResumeCard from '@/components/resume/ResumeCard';
+import { ResumeInfoType } from '@/type/ResumeType';
+import ResumeCard from '@/components/resume/resumeListType/ResumeCard';
 import ResumeRow from '@/components/resume/resumeListType/ResumeRow';
 import LTextWhite from '@/components/text/LTextWhite';
 

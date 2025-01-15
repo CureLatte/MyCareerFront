@@ -10,16 +10,8 @@ export default function ListLayOut({
 	const setActivateTab = useContext(ActivateDispatch);
 
 	useEffect(() => {
-		setActivateTab(3);
+		setActivateTab(4);
 	}, []);
 
-	return (
-		<div
-			style={{
-				margin: '20px 20px 20px 0',
-			}}
-		>
-			{children}
-		</div>
-	);
+	return <div>{children}</div>;
 }

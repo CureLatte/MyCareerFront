@@ -9,8 +9,49 @@ import {
 	WHITE_1,
 } from '@/const/Color';
 import STextBlack from '@/components/text/STextBlack';
-import { ResumeFilterType } from '@/type/Resume';
+import { ResumeFilterType } from '@/type/ResumeType';
 import ResumeFilterTag from '@/components/resume/ResumeFilterTag';
+
+const BackGroundStyle = styled.div`
+	background-color: ${DARK_BLUE_3};
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	align-items: start;
+	justify-content: start;
+	padding: 10px;
+	border-radius: 20px;
+	box-sizing: border-box;
+	overflow: auto;
+
+	.list {
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		gap: 20px;
+		margin: 5px;
+	}
+
+	.tagName {
+		background-color: ${DARK};
+		height: 20px;
+		border-radius: 20px;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		justify-content: center;
+		padding: 5px;
+		width: 100px;
+		text-overflow: ellipsis;
+	}
+
+	.tagList {
+		display: flex;
+		flex-direction: row;
+		gap: 10px;
+	}
+`;
 
 export default function ResumeFilter({
 	setResumeFilter,
@@ -57,46 +98,6 @@ export default function ResumeFilter({
 			name: '오름 차순',
 		},
 	];
-
-	const BackGroundStyle = styled.div`
-		background-color: ${DARK_BLUE_3};
-		width: 100%;
-		display: flex;
-		flex-direction: column;
-		align-items: start;
-		justify-content: start;
-		padding: 10px;
-		border-radius: 20px;
-		box-sizing: border-box;
-
-		.list {
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: center;
-			gap: 20px;
-			margin: 5px;
-		}
-
-		.tagName {
-			background-color: ${DARK};
-			height: 20px;
-			border-radius: 20px;
-			display: flex;
-			flex-direction: row;
-			align-items: center;
-			justify-content: center;
-			padding: 5px;
-			width: 100px;
-			text-overflow: ellipsis;
-		}
-
-		.tagList {
-			display: flex;
-			flex-direction: row;
-			gap: 10px;
-		}
-	`;
 
 	return (
 		<BackGroundStyle>

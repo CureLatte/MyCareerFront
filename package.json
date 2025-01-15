@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/react-syntax-highlighter": "^15.5.13",
+    "@uiw/react-md-editor": "^4.0.5",
     "axios": "^1.7.9",
     "character-entities": "^2.0.2",
     "dotenv": "^16.4.7",

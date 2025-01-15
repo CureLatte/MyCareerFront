@@ -8,6 +8,13 @@ import {
 } from '@/const/Color';
 import styled from 'styled-components';
 
+const BackGroundStyle = styled.div`
+	background-color: ${DARK_BLUE_4};
+	border-radius: 20px;
+	padding: 20px;
+	// margin: 30px;
+`;
+
 export default function RoundBoxTemplate({
 	children,
 	className,
@@ -15,12 +22,5 @@ export default function RoundBoxTemplate({
 	children: React.ReactNode;
 	className?: string;
 }) {
-	const BackGroundStyle = styled.div`
-		background-color: ${DARK_BLUE_4};
-		border-radius: 20px;
-		padding: 20px;
-		// margin: 30px;
-	`;
-
 	return <BackGroundStyle className={className}>{children}</BackGroundStyle>;
 }

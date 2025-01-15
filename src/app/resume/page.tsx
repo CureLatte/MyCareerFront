@@ -11,13 +11,13 @@ import {
 	NavBarDispatch,
 } from '@/context/NavBarContext';
 
-export default function ResumePage() {
-	const ButtonStyle = styled(Link)`
-		background-color: ${DARK_BLUE_2};
-		width: 100px;
-		height: 100px;
-	`;
+const ButtonStyle = styled(Link)`
+	background-color: ${DARK_BLUE_2};
+	width: 100px;
+	height: 100px;
+`;
 
+export default function ResumePage() {
 	return (
 		<RoundBoxTemplate>
 			<ButtonStyle href={'/resume/list'}>

@@ -2,7 +2,7 @@
 import ResumeFilter from '@/components/resume/ResumeFilter';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
-import { ResumeInfoType, ResumeFilterType } from '@/type/Resume';
+import { ResumeInfoType, ResumeFilterType } from '@/type/ResumeType';
 import ResumePreview from '@/components/resume/ResumePreview';
 import { getResumeListAPI } from '@/api/ResumeApi';
 import ResumeListTypeFactory from '@/components/resume/resumeListType/ResumeListTypeFactory';

@@ -27,7 +27,7 @@ export default function DashBoardPage() {
 		grid-template-columns: 1fr 1fr 1fr;
 		min-height: 750px;
 		height: calc(100vh - 40px);
-		margin: 20px 20px 20px 0;
+		// margin: 20px 20px 20px 0;
 
 		.box {
 			margin: 0;

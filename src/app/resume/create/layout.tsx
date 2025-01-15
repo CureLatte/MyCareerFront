@@ -10,7 +10,7 @@ export default function ResumeCreateLayout({
 	const setActivateTab = useContext(ActivateDispatch);
 
 	useEffect(() => {
-		setActivateTab(4);
+		setActivateTab(5);
 	}, []);
 
 	return <div>{children}</div>;

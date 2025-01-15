@@ -1,6 +1,6 @@
 'use client';
 import styled from 'styled-components';
-import { ResumeInfoType } from '@/type/Resume';
+import { ResumeInfoType } from '@/type/ResumeType';
 import {
 	DARK_BLUE_2,
 	DARK_BLUE_3,

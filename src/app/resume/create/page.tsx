@@ -1,3 +1,11 @@
+'use client';
+import ResumeCreatePage from '@/components/resume/ResumeCreatePage';
+import RoundBoxTemplate from '@/components/RoundBoxTemplate';
+
 export default function ResumeCreateLayOut() {
-	return <div>이력서 작성</div>;
+	return (
+		<RoundBoxTemplate>
+			<ResumeCreatePage />
+		</RoundBoxTemplate>
+	);
 }

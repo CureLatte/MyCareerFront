@@ -1,6 +1,6 @@
 'use client';
 import styled from 'styled-components';
-import { ResumeInfoType } from '@/type/Resume';
+import { ResumeInfoType } from '@/type/ResumeType';
 import {
 	DARK_BLUE_2,
 	DARK_BLUE_4,
@@ -13,7 +13,25 @@ import LTextWhite from '@/components/text/LTextWhite';
 import STextWhite from '@/components/text/STextWhite';
 import BranchName from '@/components/resume/BranchName';
 import { useState } from 'react';
-
+import Link from 'next/link';
+const BackGroundStyle = styled.div<{ selected: boolean | undefined }>`
+	width: 150px;
+	height: 150px;
+	background-color: ${DARK_GRAY_2};
+	border-radius: 20px;
+	position: relative;
+	display: inline-flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 20px;
+	margin: 10px;
+	cursor: pointer;
+	border: ${(props: any) =>
+		props.selected
+			? `5px solid ${DARK_BLUE_2}`
+			: `5px solid ${DARK_GRAY_2}`};
+`;
 export default function ResumeCard({
 	resumeInfo,
 	selected,
@@ -25,26 +43,9 @@ export default function ResumeCard({
 }) {
 	const [hover, setHover] = useState<boolean>(false);
 
-	const BackGroundStyle = styled.div`
-		width: 150px;
-		height: 150px;
-		background-color: ${DARK_GRAY_2};
-		border-radius: 20px;
-		position: relative;
-		display: inline-flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-		gap: 20px;
-		margin: 10px;
-		cursor: pointer;
-		border: ${selected
-			? `5px solid ${DARK_BLUE_2}`
-			: `5px solid ${DARK_GRAY_2}`};
-	`;
-
 	return (
 		<BackGroundStyle
+			selected={selected}
 			onMouseEnter={() => setHover(true)}
 			onMouseLeave={() => setHover(false)}
 			onClick={onClick}
@@ -58,7 +59,7 @@ export default function ResumeCard({
 			<LTextWhite text={resumeInfo.title} />
 			<STextWhite text={resumeInfo.updatedAt} />
 			{hover && (
-				<div
+				<Link
 					style={{
 						position: 'absolute',
 						bottom: '10px',
@@ -72,9 +73,10 @@ export default function ResumeCard({
 						alignItems: 'center',
 						justifyContent: 'center',
 					}}
+					href={`/resume/edit/${resumeInfo.resumeId}`}
 				>
 					수정하기
-				</div>
+				</Link>
 			)}
 		</BackGroundStyle>
 	);

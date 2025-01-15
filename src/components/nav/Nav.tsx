@@ -6,7 +6,7 @@ import {
 } from '@/const/Color';
 import NavText from '@/components/nav/NavText';
 import { useCallback, useContext, useState } from 'react';
-import { NavListType, NavType } from '@/type/navList';
+import { NavListType, NavType } from '@/type/NavListType';
 import {
 	ActivateContext,
 	ActivateDispatch,
@@ -31,11 +31,13 @@ export default function Nav({}: any) {
 				backgroundColor: DARK_BLUE_4,
 				margin: '20px',
 				width: '170px',
+				height: 'calc(100vh - 40px)',
 				borderRadius: '20px',
 				padding: '20px 0 20px 0',
 				display: 'flex',
 				flexDirection: 'column',
 				alignItems: 'center',
+				boxSizing: 'border-box',
 			}}
 		>
 			<div
@@ -67,7 +69,7 @@ export default function Nav({}: any) {
 					<NavText
 						key={index}
 						onClick={() => {
-							setActivateTab(index);
+							setActivateTab(item.id);
 							navList[index].alarmYn = false;
 							setNavList([...navList]);
 						}}
@@ -75,7 +77,7 @@ export default function Nav({}: any) {
 						url={item.url}
 						alarmYn={item.alarmYn}
 						subTabYn={item.subTab}
-						activate={Number(index) === Number(activateTab)}
+						activate={Number(item.id) === Number(activateTab)}
 					></NavText>
 				);
 			})}
